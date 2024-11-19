@@ -1,0 +1,203 @@
+import UIKit
+
+var greeting = "Hello, playground";
+
+print("""
+To control the flow of the program
+""")
+//Boolean expression
+/*
+ variable either true and false (not 0 or 1)
+ always lowercase (its case-sensitive)
+ */
+
+var yes: Bool = true
+var no: Bool = false
+
+print(yes)
+print(no)
+
+let Yes = true //bad way of coding
+let No = false //bad way
+
+//BOOLEAN OPERATOR
+// == is the eqality operator x == y
+// = is the assignment operator x = 3
+// != the not equal operator
+// should always be ques form isDone ...
+
+let x: Int = 3
+let y: Int = 33
+let z: Int = 33
+let doesOnetNotEqualTwo = (x != y) //false
+print (doesOnetNotEqualTwo) // prints false
+let onetNotEqualTwo = (1 != 2) //true
+
+let alsoTrue = !(1 == 2) // another way
+print (alsoTrue)
+
+let oneGreaterThan2: Bool = (1 > 2) //greater Than
+let oneSmallerThan2: Bool = (1 < 2) //smaller than
+
+//AND OPERATOR REPRESENTED AS && OR REPRESENTED AS ||
+
+let testingAnd = true && true //true
+let addExample = (x < y) && (x < z) //true
+let testingOr = true || true //only one needs to be true
+let orExample = (x > y) || (x < z) //true
+
+//Combining AND and OR
+
+let andOr = (1 < 2) && (3 > 4) || 1 < 2
+
+let order = "cat" == "dog" //false (reads according to character)
+
+//TOGGLE
+var switchState = true
+switchState.toggle() // switchState = false
+switchState.toggle() //switchState = true
+print(switchState)   //true
+
+//MINI EXERCISE
+
+//Ques1
+let myAge: Int = 29
+let isteenager: Bool = (myAge >= 13) && (myAge <= 19)
+print(isteenager)
+
+//Ques2
+let theirAge: Int = 30
+let theyTeenager: Bool = (myAge >= 13) && (myAge <= 19)
+let bothTeenagers: Bool = (isteenager) && (theyTeenager)
+
+//IF STATEMENTS
+if (x < y){         //always must be true to enter code block
+    print ("Yes, x is smaller than y")
+}   //continues from here
+
+//example1
+let animal: String = "Zebra"
+if (animal == "Cat") || (animal == "Dog"){
+    print ("This animal is a house pet.")
+}
+else{
+    print ("This animal is not a house pet.")
+}
+//example2
+let hourOfDay: Int = 12
+var timeOfDay: String
+
+
+//LOOPS
+
+if hourOfDay < 6{
+    timeOfDay = "Early Morning"
+}
+else if hourOfDay < 12{
+    timeOfDay = "Morning"
+}
+else if hourOfDay < 17 {
+    timeOfDay = "Afternoon"
+}
+else if hourOfDay < 20 {
+    timeOfDay = "Evening"
+    
+}
+else if hourOfDay < 24 {
+    timeOfDay = "Night"
+}
+else {
+    timeOfDay = "Invalid Time"
+}
+print(timeOfDay)
+
+//SHORT-CIRCUITING
+let name: String = "John"
+if (1 < 2) && (name == "John"){
+    print ("Yes")
+}
+
+//CONSTANT AND VARIABLE SCOPE
+
+var hoursWorked = 45
+var pay = 0
+if hoursWorked > 40 {
+  let hoursOver40 = hoursWorked - 40  // hoursOver40 = 5
+  pay += hoursOver40 * 50           // pay = 250
+  hoursWorked -= hoursOver40          // hoursWorked = 40
+}
+pay += hoursWorked * 25             // pay = 1250
+
+print(pay)
+
+//TERNARY OPERATOR
+//have true side and false side have outputs either way
+
+let a = 5
+let b = 10
+
+let min: Int
+if a < b {
+  min = a
+} else {
+  min = b
+}
+
+let max: Int
+if a > b {
+  max = a
+} else {
+  max = b
+}
+
+//(<CONDITION>) ? <TRUE VALUE> : <FALSE VAUE>
+let c = 5
+let d = 10
+
+let newMin = (c < d) ? c : d
+print (newMin)
+let newMax = (c > d) ? c : d
+print(newMax)
+
+//SEQ SEL REP
+//SEQ 1, 2, 3
+//SEL IF a > Astatement else b > Bstatement
+//REP if notDone 1, 2, 3 repeat
+
+//WHILE LOOP
+var count = 0
+while count < 3 {
+    print("Mom") //infinite Loop! bad code! Dont run!!!!
+    count += 1
+}
+
+//example1
+var sum = 1
+while sum < 5 {
+    sum = sum + (sum + 1)
+}
+print (sum)
+
+//example2
+var gameOver: Bool = false
+while gameOver {
+    // do something
+    // check if player is dead
+    // if ther are dead..toggle gameOver
+    gameOver.toggle()
+}
+//repeat
+repeat{
+    //do something
+} while !gameOver
+            
+//BREAKING OUT OF LOOP
+sum = 1
+
+while true {
+  sum = sum + (sum + 1)
+  if sum >= 1000 {
+    break //breaks to here and continues
+  }
+}
+//code

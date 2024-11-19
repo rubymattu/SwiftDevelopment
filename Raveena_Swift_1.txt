@@ -1,0 +1,39 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                  Raveena_Swift_1                          SUBMITTED: FRIDAY- NOVEMBER 15, 2024
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import UIKit
+
+//            Constant declarations
+//*********************************************
+
+let tempCelsius: Float = 14.2
+let tempFahrenheit: Float = convertCelsiusToFahrenheit(tempInCelsius: tempCelsius)
+
+
+//                  Function
+//*********************************************
+
+func convertCelsiusToFahrenheit(tempInCelsius: Float) -> Float {            //accepts temperature in celsius
+    let calculateFahrenheit: Float = Float(tempInCelsius * (9 / 5)) + 32
+    var result: String
+
+//               Condition checks
+//**********************************************
+                                                                            
+    if tempCelsius < 5.0{                                                   //condition for cold
+        result = "Cold 🥶"
+    }   else if tempCelsius >= 5.0 && tempCelsius <= 12.0{                  //condition for cool
+        result = "Cool 🆒"
+    }   else if tempCelsius >= 13.0 && tempCelsius <= 24.0{                 //condition for warm
+        result = "Warm 🌤️"
+    }   else if tempCelsius > 24.0{                                         //condition for hot
+        result = "Hot ☀️"
+    }   else{
+        result = "Humid 💧"                                                 //result for condition between 12 and 13
+    }
+    print("The weather is \(result) with \(tempCelsius)°C.")
+    
+    return calculateFahrenheit                                             //returns equivalent temprature in fahrenheit
+}
+print("\(tempCelsius)°C is equal to \(tempFahrenheit)°F")

@@ -1,0 +1,204 @@
+import UIKit
+//TYPE CONVERSION
+var integer: Int = 100
+var decimal: Double = 12.5
+//integer = decimal this is an error
+integer = Int(decimal)
+print(integer)
+
+//MIXED DATA TYPES
+//example multiplying double and int
+let hourlyRate: Double = 12.5
+let hoursWorked: Int = 40
+// let totalPay: Double = hourlyRate * hoursWorked is an error
+let totalPay: Double = hourlyRate * Double(hoursWorked)
+print(totalPay)
+
+//TYPE INFERENCE (option + click to view info regarding data type)
+//No need to declare data type
+let inferedTypeInt = 16
+
+let inferedTypeDouble = 16.0
+
+var wantDouble = 3 //This is by default Int
+//But we want decimal
+let actuallyDouble = Double(3) // one-way of declaring data type
+let alsoDouble: Double = 3.0  // second way of declaring data type (PREFFERED WAY)
+let anotherDouble = 3 as Double // third way of declaring data type
+
+
+
+
+
+//MINI EXERCISES
+print ("MINI EXERCISE")
+
+//ques 1
+var ques1: String = """
+Ques 1: Create a constant called age1 and set it equal to 42. Create a constant called age2
+and set it equal to 21. Check using Option-click that the type for both has been
+inferred correctly as Int.
+"""
+print("\(ques1)")
+
+let age1 = 42
+let age2 = 21
+
+print ("Ans 1: The type for both is Int")
+
+//ques2
+var ques2: String = """
+Ques 2: Create a constant called avg1 and set it equal to the average of age1 and age2
+using the naïve operation (age1 + age2) / 2. Use Option-click to check the
+type and check the result of avg1. Why is it wrong?
+"""
+print("\(ques2)")
+
+let avg1 = (age1 + age2)/2
+print ("The data type of \(avg1) is wrong because it is Int by default.")
+
+//ques3
+var ques3: String = """
+Ques 3: Correct the mistake in the above exercise by converting age1 and age2 to type
+Double in the formula. Use Option-click to check the type and check the result of
+avg1. Why is it now correct?
+"""
+print("\(ques3)")
+
+let avg2 = Double(age1 + age2)/2
+print ("\(avg2)")
+print ("The data type of \(avg1) is correct because of data type declaration as Double.")
+
+
+//STRINGS
+//Characters
+let charA: Character = "a"
+print("\(charA)")
+let dog: Character = "🐶"
+print ("\(dog)")
+let stringDog: String = "Dog"
+print ("\(stringDog)")
+
+//CONCATENATION
+var message = "Hello!" + " My name is "
+let name = "Raveena"
+message += name
+
+//INTERPOLATION
+message = "Hello! My name is \(name)"
+print ("\(message)")
+
+//MINI EXERCISES
+print ("MINI EXERCISE")
+var ques4: String = """
+Ques 4: Create a string constant called firstName and initialize it to your first name.
+Also, create a string constant called lastName and initialize it to your last name.
+"""
+print("\(ques4)")
+
+let firstName: String = "Raveena"
+let lastName: String = "Mattu"
+
+
+var ques5: String = """
+Ques 5: Create a string constant called fullName by adding the firstName and lastName
+constants together, separated by a space.
+"""
+print("\(ques5)")
+let fullName: String = firstName + " " + lastName
+print ("\(fullName)")
+
+var ques6: String = """
+Ques 6: Using interpolation, create a string constant called myDetails that uses the
+fullName constant to create a string introducing yourself. For example, my string
+would read: "Hello, my name is Matt Galloway."
+"""
+print("\(ques6)")
+
+let myDetails: String = "Hello!! My name is \(fullName)"
+print("\(myDetails)")
+
+
+//TUPLE (x,y) on 2D grid or (x,y,z) on 3D grid
+
+let Coordinates: (Int, Int) = (1, 2) //with dataType declaration
+let coordinatesInt = (1, 2) //Type Inference default Int
+let coordinatesDouble = (1.0, 2.5) //Type Inference with default Double
+let coordinatesMixed = (1, 2.5) //Type Inference with mixed data types
+
+//how to access data inside the tuple
+let X1 = Coordinates.0
+print ("\(X1)")
+
+let X2 = coordinatesDouble.1
+print ("\(X2)")
+
+
+let declaredCoordinates = (x: 7, y: 4)//declaring the coordinates as x, y instead of position
+let X3 = declaredCoordinates.x
+print ("\(X3)")
+let X4 = declaredCoordinates.y
+print("\(X4)")
+
+let coordinates3D = (x: 1, y: 2, z: 3)
+let (x3, y3, z3) = coordinates3D //this assigns x value to x3, y value to y3 and z value to z3
+let (x4, y4, _) = coordinates3D //_ means the z value is ignored in this case
+
+//MINI EXERCISES
+
+let date = (11, 12, 2024, 23.8)
+let(_, day, _, avg) = date
+print(day)
+print(avg)
+
+//TYPE ALIASES
+//can create your own dat atype from pre-defined data type
+typealias Animal = String
+let animal: Animal = "Dog"
+print(animal)
+
+//CHALLENGES
+
+let coordinates = (2,3) //challenge1
+let namedCoordinate = (row: 1, column: 2) //challenge2
+
+//challenge3
+//let character: Character = "Dog" this is an error
+let Character: Character = "🐶"
+let string: String = "Dog"
+let String: String = "🐶"
+
+//challenge4
+let tuple = (day: 15, month: 8, year: 2015)
+//let day = tuple.Day this is an error
+
+//challenge5
+let Name = "Matt"
+//Name += " Galloway" the name cannot to have new value because it is a constant
+
+//challenge6
+let Tuple = (100, 1.5, 10)
+let value = Tuple.1 // type of value is double
+
+//challenge7
+let tUple = (day: 15, month: 8, year: 2015)
+let month = tUple.month //the value of month is 8
+
+//challenge8
+let number = 10
+let multiplier = 5
+let summary = "(\(number) multiplied by \(multiplier) equals \(number * multiplier)"
+// the value of summary is 50
+
+//challenge9
+let a = 4
+let b: Int32 = 100
+let c: UInt8 = 12
+let sum = a + Int(b)
+print(sum)
+let ans = sum - Int(c)
+print(ans)
+
+//challenge10
+Double.pi
+Float.pi //only 6 decimal values

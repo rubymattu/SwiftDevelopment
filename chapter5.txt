@@ -1,0 +1,177 @@
+import UIKit
+import Foundation
+
+var greeting = """
+ **** CHAPTER - 5 ****
+****** FUNCTIONS ******
+
+
+"""
+print(greeting)
+
+/* FUNCTION DEFINITION ************************************
+ - It lets you define a block of code that performs a task
+ - It runs when app needs to run that task anytime rather than copying and pasting same code everywhere
+*/
+
+/* FUNCTION DECLARATION ************************************
+ - define functionction using "func" keyword
+ - followed by name of the function
+ - followed by the parenthesis
+ - followed by opening braces
+ - followed by the code to run
+ - followed by closing braces
+*/
+func printMyname(){
+    print ("My name is Raveena")    // > My name is Raveena
+}
+
+/* FUNCTION PARAMETERS ************************************
+ - used to pass data known as parameters to the function
+ - defined inside the parenthesis (contains parameter list)
+ - a function declares parameters in its parameter list while declaration
+ - "arguments" are values for the function parameters when it is called
+ */
+
+
+var count: Int = 0
+while count < 4{
+    printMyname()
+    count += 1 // adds 1 to count
+}
+// Swift does not support ++, --
+
+
+let firstName: String = "Raveena"
+let lastName: String = "Mattu"
+func printFullName(fName: String, lName: String){
+    print ("Welcome!! \(firstName) \(lastName)")
+   // return "Welcome!! \(firstName) \(lastName)" can have return values
+}
+printFullName(fName: firstName, lName: lastName)
+
+/* INOUT BEHAVIOUR AND CALL BY VALUE RESULT ***************
+    - "inout" before parameter type indicates that parameter should be copied in
+    - that local copy is used within the function and copied back out when the function returns
+    - "&" is used before he argument when the function is called
+*/
+
+func incrementAndPrint(number: inout Int) -> Int{
+    number += 1
+    return number
+}
+
+var number = 4
+incrementAndPrint(number: &number)
+print(number)
+
+/* OVERLOADING *******************************************
+ - when same name is used for different functions
+ - compiler must still be able to tell th difference usually done by:
+        - different number of parameters
+        - different parameter types
+        - different external parameter names
+ - should only be used for functions that are related and similar in behvaiour
+*/
+
+func getValue() -> Int{
+    10
+}
+
+func getValue() -> String{
+    "Raveena Mattu"
+}
+
+/* "let value = getValue()"   this gives error
+ because swift doesnt know which function to call
+ - to fix this, it needs to be declared what value type is required
+ */
+
+let valueInt: Int = getValue()  // > 10
+let valueString: String = getValue() // > Raveena Mattu
+
+//MINI EXERCISES
+print("**** MINI EXERCISES ****")
+//Ques1
+print("**** Solution 1 ****")
+func printFulName(_ firstName: String, _ lastName: String){
+   let fullName = firstName + " " + lastName
+    print(fullName)
+}
+//printFulName(firstName: "Raveena", lastName: "Mattu")
+
+//Ques 2
+//Change declaration of func to have no external name for either parameter
+print("**** Solution 2 ****")
+printFulName("Noordeep", "Singh")
+
+//Ques 3 & 4
+print("**** Solution 3 ****")
+var Fname: String = "Raveena"
+var Lname: String = "Mattu"
+func calculateFullName (Fname: String, Lname: String) -> (name: String, length: Int){
+   let name: String = Fname + " " + Lname
+    var length: Int = (name.count)
+    return (name, length)
+}
+print(calculateFullName(Fname: Fname, Lname: Lname))
+
+
+/* FUNCTION AS VARIABLES  **********************************
+ - functions can be assigned as variables
+ - functions to variables is handy because it allows to pass functions to other functions
+ - see example
+*/
+
+func add (_ a: Int, _ b: Int) -> Int{
+    a + b
+}
+
+func sub (_ a: Int, _ b: Int) -> Int{
+    a - b
+}
+
+var function = sub      //try changing sub to add
+function(10, 5)
+
+//to print function as variable
+
+func printResult (_ function: (Int, Int) -> Int, _ a: Int, _ b: Int){
+    let result = function (a, b)
+    print(result)
+}
+
+print(printResult(sub, 10, 4))
+
+/// Calculates the average of three values
+/// - Parameters:
+///   - a: The first value.
+///   - b: The second value.
+///   - c: The third value.
+/// - Returns: The average of the three values.
+func calculateAverage(of a: Double, and b: Double, and c: Double) -> Double {
+  let total = a + b + c
+  let average = total / 3
+  return average
+}
+
+calculateAverage(of: 1, and: 3, and: 5)
+
+///////CHALLENGES////////////////////////////////////////////////////////////////////////////
+func isNumberDivisible(_ number: Int, divisor: Int) -> Bool{
+    var result: Int = number % divisor
+    return result == 0
+}
+var result1 = isNumberDivisible(7, divisor: 2)
+print(result1)
+
+func fibonacci(_ number: Int) -> Int{
+    if number <= 0{
+        return 0
+    } else if number == 1 || number == 2 {
+        return 1
+    } else{
+        return fibonacci(number - 1) + fibonacci(number - 2)
+    }
+}
+fibonacci(-3)
